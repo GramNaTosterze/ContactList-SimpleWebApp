@@ -52,6 +52,7 @@ namespace ContactList_SimpleWebApp.Controllers
         [Authorize]
         public IActionResult Create()
         {
+            ViewData["Categories"] = Categories();
             return View();
         }
 
@@ -61,7 +62,7 @@ namespace ContactList_SimpleWebApp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Create([Bind("Name,Surname,Email,Password,Phone,BirthDate")] Contact contact)
+        public async Task<IActionResult> Create([Bind("Name,Surname,Email,Category,Password,Phone,BirthDate")] Contact contact)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +87,7 @@ namespace ContactList_SimpleWebApp.Controllers
             {
                 return NotFound();
             }
-
+            ViewData["Categories"] = Categories();
             return View(contact);
         }
 
@@ -96,7 +97,7 @@ namespace ContactList_SimpleWebApp.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
-        public async Task<IActionResult> Edit(string id, [Bind("Name,Surname,Email,MainCategory,Password,Phone,BirthDate")] Contact contact)
+        public async Task<IActionResult> Edit(string id, [Bind("Name,Surname,Email,Category,Password,Phone,BirthDate")] Contact contact)
         {
             if (id != contact.Email)
             {
@@ -123,6 +124,7 @@ namespace ContactList_SimpleWebApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["Categories"] = Categories();
             return View(contact);
         }
 
@@ -170,9 +172,9 @@ namespace ContactList_SimpleWebApp.Controllers
           return (_context.Contact?.Any(e => e.Email == id)).GetValueOrDefault();
         }
         
-        private SelectList Categories()
+        public SelectList Categories()
         {
-            return new SelectList(_context.Categories.ToList());
+            return new SelectList(_context.Categories.ToList(), "Category", "Category");
         }
     }
 }

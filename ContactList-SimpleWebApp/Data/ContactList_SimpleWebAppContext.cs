@@ -17,5 +17,6 @@ namespace ContactList_SimpleWebApp.Data
         }
         public DbSet<ContactList_SimpleWebApp.Models.ContactCategory> Categories { get; set; } = default!;
         public DbSet<ContactList_SimpleWebApp.Models.Contact> Contact { get; set; } = default!;
+
     }
 }

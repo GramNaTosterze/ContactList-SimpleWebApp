@@ -35,7 +35,7 @@ namespace ContactList_SimpleWebApp.Models
                         Name = "Kamil",
                         Surname = "Ślimak",
                         Email = "kamilślimak@mail.com",
-                        MainCategory = context.Categories.Single( c => c.Category == "Business"),
+                        Category = "Business",
                         Password = "1234"
                     },
                     new Contact
@@ -43,9 +43,9 @@ namespace ContactList_SimpleWebApp.Models
                         Name = "Jan",
                         Surname = "Kowalski",
                         Email = "jk@mail.com",
-                        MainCategory = context.Categories.Single( c => c.Category == "Private"),
+                        Category = "Private",
                         Password = "1234"
-                    });
+                    }); ;
                 }
                 context.SaveChanges();
             }

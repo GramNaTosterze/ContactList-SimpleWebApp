@@ -28,6 +28,17 @@
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Category" class="control-label"></label>
+                <Select asp-for="Category" class="form-control" asp-items="@ViewData["Categories"] as SelectList">
+                    <option>Select Contact type...</option>
+                </Select>
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            @if ((ViewData["Categories"] as SelectList).SelectedValue == "Business")
+            {
+                <p>TEST</p>
+            }
+            <div class="form-group">
                 <label asp-for="Password" class="control-label"></label>
                 <input asp-for="Password" class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>

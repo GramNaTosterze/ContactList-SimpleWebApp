@@ -4,6 +4,7 @@ using ContactList_SimpleWebApp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ContactList_SimpleWebApp.Migrations
 {
     [DbContext(typeof(ContactList_SimpleWebAppContext))]
-    partial class ContactList_SimpleWebAppContextModelSnapshot : ModelSnapshot
+    [Migration("20230502200129_ContactCategory2")]
+    partial class ContactCategory2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
