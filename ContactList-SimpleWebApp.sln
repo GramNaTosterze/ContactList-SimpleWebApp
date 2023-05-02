@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33530.505
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactList-SimpleWebApp", "ContactList-SimpleWebApp\ContactList-SimpleWebApp.csproj", "{0DA455EE-C85E-4630-BAE9-C80A217AE7AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0DA455EE-C85E-4630-BAE9-C80A217AE7AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DA455EE-C85E-4630-BAE9-C80A217AE7AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DA455EE-C85E-4630-BAE9-C80A217AE7AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DA455EE-C85E-4630-BAE9-C80A217AE7AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7F5A7FB9-B743-42C3-9C8B-65EDF9223482}
+	EndGlobalSection
+EndGlobal
