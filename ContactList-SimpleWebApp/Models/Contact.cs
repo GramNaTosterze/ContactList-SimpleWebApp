@@ -14,6 +14,8 @@ namespace ContactList_SimpleWebApp.Models
         [Required]public string Password { get; set; }
         [ForeignKey("Categories")]public string Category { get; set; }
         
+        public string SubCategory { get; set; }
+
         [RegularExpression(@"([0]{1}[6]{1}[-\s]*([1-9]{1}[\s]*){8})|([0]{1}[1-9]{1}[0-9]{1}[0-9]{1}[-\s]*([1-9]{1}[\s]*){6})|([0]{1}[1-9]{1}[0-9]{1}[-\s]*([1-9]{1}[\s]*){7})")]
         public string? Phone { get; set; }
         [Display(Name = "Birth Date")][DataType(DataType.Date)] public DateTime? BirthDate { get; set; }

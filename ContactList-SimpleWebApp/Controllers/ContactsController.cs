@@ -9,6 +9,7 @@ using ContactList_SimpleWebApp.Data;
 using ContactList_SimpleWebApp.Models;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 
 namespace ContactList_SimpleWebApp.Controllers
 {
@@ -166,6 +167,19 @@ namespace ContactList_SimpleWebApp.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public ActionResult BusinessSubCategory(string email)
+        {
+            return PartialView("_Business", _context.Contact.Find("jk@mail.com"));
+        }
+        public ActionResult OtherSubCategory(string email)
+        {
+            return PartialView("_Other", _context.Contact.Find("jk@mail.com"));
+        }
+
 
         private bool ContactExists(string id)
         {

@@ -10,7 +10,7 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Edit" data-ajax="true" data-ajax-mode="replace" data-ajax-update="#subCategory">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
@@ -29,10 +29,15 @@
             </div>
             <div class="form-group">
                 <label asp-for="Category" class="control-label"></label>
-                <Select asp-for="Category" class="form-control" asp-items="@ViewData["Categories"] as SelectList">
-                    <option>Select Contact type...</option>
+                <Select asp-for="Category" class="form-control" asp-items="@ViewData["Categories"] as SelectList" onchange="SubCategory(this.value)">
+                <option>Select Category...</option>
                 </Select>
                 <span asp-validation-for="Category" class="text-danger"></span>
+
+            </div>
+            <div id="subCategory" class="form-grup">
+                <partial name="_Business" model="Model"/>
+                @Html.AntiForgeryToken()
             </div>
             <div class="form-group">
                 <label asp-for="Password" class="control-label"></label>
@@ -60,3 +65,35 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
+@section scripts {
+    <script>
+        function SubCategory(cat) {
+            if (cat == "") {
+                $('#subCategory').html("");
+                return;
+            }
+            if (cat == "Business") {
+                $.ajax({
+                    type: "POST",
+                    usr: 'Contacts/BusinessSubCategory',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: {
+                        __RequestVerificationToken: $("[name='__RequestVerificationToken']").val(),
+                        email: cat
+                    },
+                    success: function (response) {
+                        $('#subCategory').html(responce);
+                    }
+                });
+            }
+            else if (cat == "Other") {
+                // TODO
+            }
+            else {
+                $('#subCategory').html("");
+            }
+        }
+
+    </script>
+}

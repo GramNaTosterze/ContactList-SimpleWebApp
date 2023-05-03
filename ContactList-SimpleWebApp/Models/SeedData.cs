@@ -36,6 +36,7 @@ namespace ContactList_SimpleWebApp.Models
                         Surname = "Ślimak",
                         Email = "kamilślimak@mail.com",
                         Category = "Business",
+                        SubCategory = "Boss",
                         Password = "1234"
                     },
                     new Contact
